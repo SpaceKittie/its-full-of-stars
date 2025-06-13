@@ -1,0 +1,111 @@
+version: 2
+
+sources:
+  - name: cargo_bay
+    description: "Raw data ingested from various space-related APIs by Airflow."
+    database: SPACE_CADET_DB 
+    schema: CARGO_BAY
+
+    tables:
+      - name: apod
+        identifier: CB_NASA_APOD
+        description: "NASA's Astronomy Picture of the Day. Contains structured data with columns for title, explanation, etc."
+        columns:
+          - name: COPYRIGHT
+            description: "Copyright information for the image."
+          - name: APOD_DATE
+            description: "Date of the astronomy picture."
+          - name: EXPLANATION
+            description: "Description of the astronomy picture."
+          - name: HD_URL
+            description: "URL to the high-definition version of the image."
+          - name: MEDIA_TYPE
+            description: "Type of media (image or video)."
+          - name: SERVICE_VERSION
+            description: "API service version."
+          - name: TITLE
+            description: "Title of the astronomy picture."
+          - name: URL
+            description: "URL to the standard-definition version of the image."
+          - name: LOAD_TS
+            description: "Timestamp when the record was loaded."
+      
+      - name: iss_location
+        identifier: CB_ISS_LOCATION
+        description: "Append-only log of the ISS's position."
+        columns:
+          - name: LATITUDE
+            description: "Latitude coordinate of the ISS."
+          - name: LONGITUDE
+            description: "Longitude coordinate of the ISS."
+          - name: API_TIMESTAMP
+            description: "Timestamp from the API when the position was recorded."
+          - name: LOAD_TS
+            description: "Timestamp when the record was loaded."
+      
+      - name: astronauts
+        identifier: CB_ASTRONAUTS
+        description: "Snapshot of astronaut details from the SpaceDevs API."
+        columns:
+          - name: ID
+            description: "Unique identifier for the astronaut from the SpaceDevs API."
+          - name: URL
+            description: "API URL for the astronaut's record."
+          - name: NAME
+            description: "Full name of the astronaut."
+          - name: STATUS
+            description: "Current status of the astronaut (e.g., Active, Retired)."
+          - name: TYPE
+            description: "Type of astronaut (e.g., Government)."
+          - name: IN_SPACE
+            description: "Boolean flag indicating if the astronaut is currently in space."
+          - name: TIME_IN_SPACE
+            description: "Total time spent in space."
+          - name: EVA_TIME
+            description: "Total time spent on extra-vehicular activities."
+          - name: AGE
+            description: "Current age of the astronaut."
+          - name: DATE_OF_BIRTH
+            description: "Astronaut's date of birth."
+          - name: DATE_OF_DEATH
+            description: "Astronaut's date of death, if applicable."
+          - name: NATIONALITY
+            description: "Nationality of the astronaut."
+          - name: BIO
+            description: "Biography of the astronaut."
+          - name: TWITTER
+            description: "URL to the astronaut's Twitter profile."
+          - name: INSTAGRAM
+            description: "URL to the astronaut's Instagram profile."
+          - name: WIKI
+            description: "URL to the astronaut's Wikipedia page."
+          - name: AGENCY
+            description: "The space agency the astronaut belongs to."
+          - name: PROFILE_IMAGE
+            description: "URL to the astronaut's profile image."
+          - name: PROFILE_IMAGE_THUMBNAIL
+            description: "URL to the thumbnail of the astronaut's profile image."
+          - name: FLIGHTS_COUNT
+            description: "Total number of flights."
+          - name: LANDINGS_COUNT
+            description: "Total number of landings."
+          - name: SPACEWALKS_COUNT
+            description: "Total number of spacewalks."
+          - name: LAST_FLIGHT
+            description: "Timestamp of the astronaut's last flight."
+          - name: FIRST_FLIGHT
+            description: "Timestamp of the astronaut's first flight."
+          - name: LOAD_TS
+            description: "Timestamp when the record was loaded."
+
+      - name: in_space
+        identifier: CB_IN_SPACE
+        description: "Daily snapshot of astronauts currently in space, from the Open Notify API."
+        columns:
+          - name: NAME
+            description: "Full name of the astronaut in space."
+          - name: CRAFT
+            description: "Name of the spacecraft the astronaut is on."
+          - name: LOAD_TS
+            description: "Timestamp when the record was loaded."
+        

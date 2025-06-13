@@ -1,0 +1,15 @@
+services:
+  postgres:
+    dns_search: .
+  scheduler:
+    dns_search: .
+    env_file:
+      - ../.env
+  webserver:
+    dns_search: .
+    env_file:
+      - ../.env
+  triggerer:
+    dns_search: .
+    env_file:
+      - ../.env

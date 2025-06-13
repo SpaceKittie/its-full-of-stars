@@ -1,0 +1,10 @@
+requests
+snowflake-connector-python[pandas]
+apache-airflow-providers-snowflake
+astro-sdk-python[snowflake]
+streamlit
+pydeck
+apache-airflow
+dbt-snowflake
+pandas
+astronomer-cosmos

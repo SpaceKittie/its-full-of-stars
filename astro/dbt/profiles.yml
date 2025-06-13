@@ -1,0 +1,16 @@
+space_cadet:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+
+      role: "SPACE_CADET"
+      database: "SPACE_CADET_DB"
+      warehouse: "SPACE_CADET_WH"
+      schema: "CARGO_BAY"
+
+      threads: 5
+      client_session_keep_alive: False

@@ -1,0 +1,5 @@
+dbt-core
+dbt-snowflake
+streamlit
+streamlit-autorefresh
+matplotlib

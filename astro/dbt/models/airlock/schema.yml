@@ -1,0 +1,90 @@
+version: 2
+
+models:
+  - name: air_astronauts
+    description: "Staging model that enriches astronaut data from the SpaceDevs API with real-time in-space status from the 'How Many People Are In Space Right Now?' API. It unnests JSON data and joins the two sources to provide a comprehensive view of all known astronauts and their current status."
+    columns:
+      - name: ID
+        description: "The unique identifier for the astronaut from the SpaceDevs API."
+      - name: URL
+        description: "A URL link to the astronaut's detailed profile in the SpaceDevs API."
+      - name: NAME
+        description: "The full name of the astronaut."
+      - name: STATUS
+        description: "The current status of the astronaut (e.g., Active, Retired)."
+      - name: TYPE
+        description: "The type or role of the astronaut (e.g., Government, Commercial)."
+      - name: IS_IN_SPACE
+        description: "A boolean flag that is TRUE if the astronaut is currently in space."
+      - name: TIME_IN_SPACE
+        description: "The cumulative time the astronaut has spent in space, in ISO 8601 duration format."
+      - name: EVA_TIME
+        description: "The cumulative time the astronaut has spent on Extra-Vehicular Activities (spacewalks), in ISO 8601 duration format."
+      - name: AGE
+        description: "The current age of the astronaut."
+      - name: DATE_OF_BIRTH
+        description: "The astronaut's date of birth."
+      - name: DATE_OF_DEATH
+        description: "The astronaut's date of death, if applicable."
+      - name: NATIONALITY
+        description: "The nationality of the astronaut."
+      - name: BIO
+        description: "A biographical summary of the astronaut."
+      - name: TWITTER
+        description: "A link to the astronaut's Twitter/X profile."
+      - name: INSTAGRAM
+        description: "A link to the astronaut's Instagram profile."
+      - name: WIKI
+        description: "A link to the astronaut's Wikipedia page."
+      - name: AGENCY
+        description: "The name of the space agency the astronaut is affiliated with."
+      - name: PROFILE_IMAGE
+        description: "A URL to the astronaut's high-resolution profile image."
+      - name: PROFILE_IMAGE_THUMBNAIL
+        description: "A URL to the astronaut's thumbnail-sized profile image."
+      - name: FLIGHTS_COUNT
+        description: "The total number of spaceflights the astronaut has completed."
+      - name: LANDINGS_COUNT
+        description: "The total number of landings the astronaut has made."
+      - name: SPACEWALKS_COUNT
+        description: "The total number of spacewalks the astronaut has performed."
+      - name: LAST_FLIGHT
+        description: "The date of the astronaut's most recent spaceflight."
+      - name: FIRST_FLIGHT
+        description: "The date of the astronaut's first spaceflight."
+      - name: CURRENT_CRAFT
+        description: "The name of the spacecraft the astronaut is currently aboard, if in space."
+      - name: LOAD_TS
+        description: "The timestamp indicating when the source data was loaded into the warehouse."
+
+  - name: air_iss_location
+    description: "Staging model that cleans and enriches location data for the International Space Station (ISS) from the Open Notify API."
+    columns:
+      - name: LATITUDE
+        description: "The latitude of the ISS at the time of data retrieval."
+      - name: LONGITUDE
+        description: "The longitude of the ISS at the time of data retrieval."
+      - name: LOAD_TS
+        description: "The timestamp indicating when the location data was loaded."
+
+  - name: air_apod
+    description: "Staging model that cleans and enriches data for NASA's Astronomy Picture of the Day (APOD) from the official NASA API."
+    columns:
+      - name: COPYRIGHT
+        description: "Copyright information for the APOD media."
+      - name: APOD_DATE
+        description: "The date the APOD was featured."
+      - name: EXPLANATION
+        description: "A detailed explanation of the APOD media."
+      - name: HD_URL
+        description: "URL for the high-definition version of the media."
+      - name: MEDIA_TYPE
+        description: "The type of media (e.g., 'image', 'video')."
+      - name: TITLE
+        description: "The title of the APOD media."
+      - name: URL
+        description: "URL for the standard-definition version of the media."
+      - name: IMAGE_URL
+        description: "A direct URL to the image, if the media type is 'image'."
+      - name: LOAD_TS
+        description: "The timestamp indicating when the APOD data was loaded."

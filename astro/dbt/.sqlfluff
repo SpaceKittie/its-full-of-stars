@@ -1,0 +1,34 @@
+[sqlfluff]
+# Supported dialects: https://docs.sqlfluff.com/en/stable/dialects.html
+# dbt is a templater: https://docs.sqlfluff.com/en/stable/configuration.html#templaters
+templater = dbt
+dialect = snowflake
+# Comma-separated list of rules to exclude if needed, e.g.:
+# exclude_rules = L003, L009
+# Disabling rules that were causing issues or noise, especially with `sqlfluff fix` potentially leading to parsing errors.
+exclude_rules = LT01, LT02, LT05, AL01, AM05
+# To see all rules: sqlfluff rules
+# You can also configure specific rules, e.g., max_line_length = 100
+
+[sqlfluff:templater:dbt]
+# Location of your dbt_project.yml file
+project_dir = ./
+
+# You can also specify a profiles_dir if it's not in the default ~/.dbt/
+# profiles_dir = ./
+
+# Optional: Specify a target if you want to lint compiled SQL for a specific target
+# target = dev
+
+# Enforce uppercase keywords (Rule CP01, formerly L010)
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = upper
+
+# Example: Set a max line length (Rule L016)
+# [sqlfluff:rules:L016]
+# max_line_length = 120
+
+# Example: Indentation settings (Rule L003) - adjust as per your style
+# [sqlfluff:rules:L003]
+# tab_space_size = 4
+# indent_unit = space

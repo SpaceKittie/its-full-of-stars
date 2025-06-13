@@ -1,0 +1,29 @@
+name: 'space_cadet'
+config-version: 2
+
+profile: 'space_cadet'
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+on-run-start:
+  - "{{ create_raw_tables() }}"
+
+models:
+  space_cadet:
+    airlock:
+      +schema: AIRLOCK
+      +persist_docs:
+          relation: true
+          columns: true
+    mission_control:
+      +materialized: table
+      +schema: MISSION_CONTROL
+      +persist_docs:
+          relation: true
+          columns: true

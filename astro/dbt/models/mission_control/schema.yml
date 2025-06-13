@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: mc_apod
+    description: "Cleaned and queryable data for NASA's Astronomy Picture of the Day (APOD)."
+    columns:
+      - name: COPYRIGHT
+        description: "Copyright information for the image."
+      - name: APOD_DATE
+        description: "Date of the astronomy picture."
+      - name: EXPLANATION
+        description: "Description of the astronomy picture."
+      - name: HD_URL
+        description: "URL to the high-definition version of the image."
+      - name: MEDIA_TYPE
+        description: "Type of media (image or video)."
+      - name: TITLE
+        description: "Title of the astronomy picture."
+      - name: URL
+        description: "URL to the standard-definition version of the image."
+      - name: IMAGE_URL
+        description: "URL to the image (same as URL, for compatibility)."
+      - name: LOAD_TS
+        description: "Timestamp when the record was loaded."
+
+  - name: mc_astronauts
+    description: "Cleaned and queryable table of astronaut data, ready for presentation."
+    columns:
+      - name: ASTRONAUT_ID
+        description: "The unique identifier for the astronaut, sourced from the SpaceDevs API."
+      - name: NAME
+        description: "The full name of the astronaut."
+      - name: STATUS
+        description: "The current operational status of the astronaut (e.g., Active, Retired)."
+      - name: AGENCY
+        description: "The name of the space agency the astronaut is affiliated with."
+      - name: NATIONALITY
+        description: "The nationality of the astronaut."
+      - name: IS_IN_SPACE
+        description: "A boolean flag that is TRUE if the astronaut is currently in space."
+      - name: CURRENT_CRAFT
+        description: "The name of the spacecraft the astronaut is currently aboard, if applicable."
+      - name: AGE
+        description: "The current age of the astronaut."
+      - name: BIO
+        description: "A biographical summary of the astronaut."
+      - name: PROFILE_IMAGE
+        description: "A URL to the astronaut's profile image."
+      - name: WIKIPEDIA_URL
+        description: "A link to the astronaut's Wikipedia page."
+      - name: LOAD_TS
+        description: "The timestamp from the most recent data load in the airlock layer."
+
+  - name: mc_iss_location
+    description: "Enriched ISS location data with calculated distance traveled and speed between points."
+    columns:
+      - name: LATITUDE
+        description: "Latitude coordinate of the ISS."
+      - name: LONGITUDE
+        description: "Longitude coordinate of the ISS."
+      - name: RETRIEVED_AT
+        description: "Timestamp when the ISS location was retrieved."
+      - name: DISTANCE_TRAVELED_KM
+        description: "Distance traveled by the ISS since the previous point, in kilometers."
+      - name: SPEED_KPH
+        description: "Calculated speed of the ISS in kilometers per hour." 
