@@ -15,7 +15,7 @@
  .*' /  .*' ; .*`- +'  `*'
 *-*   `*-*   `*-*'
 ```
-# 🚀 Space Cadet Dashboard
+# 🚀 Snowflake ELT Dashboard
 
 A batch data pipeline and analytics platform that connects to space-related APIs, processes the data through Snowflake, and creates an interactive dashboard.
 
@@ -51,7 +51,7 @@ The project implements a full ELT pipeline:
 
 The fastest way to explore this project is with GitHub Codespaces, which automatically sets up the development environment.
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/spacekittie/space-cadet)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/spacekittie/its-full-of-stars)
 
 ### Steps in Codespaces:
 
@@ -85,8 +85,8 @@ The fastest way to explore this project is with GitHub Codespaces, which automat
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/spacekittie/space-cadet.git
-   cd space-cadet
+   git clone https://github.com/spacekittie/its-full-of-stars.git
+   cd its-full-of-stars
    ```
 2. **Set up environment**:
    ```bash

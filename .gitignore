@@ -75,7 +75,6 @@ Thumbs.db
 
 # Environment files
 .env
-.env.*
 
 # Logs
 *.log
