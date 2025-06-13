@@ -53,6 +53,8 @@ The fastest way to explore this project is with GitHub Codespaces, which automat
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/spacekittie/its-full-of-stars)
 
+The Makefile will automatically trigger Terraform infrastructure creation on Snowflake and appropriate roles and permissions required for the project as part of the setup process (e.g., when running `make all` or `make infra-apply`).
+
 ### Steps in Codespaces:
 
 1. **Set up environment**:
@@ -101,7 +103,7 @@ The fastest way to explore this project is with GitHub Codespaces, which automat
 4. **Access Airflow** via the Codespaces ports tab (port 8080)
    - Trigger the DAGs to start data collection
 
-4. **Launch the dashboard**:
+5. **Launch the dashboard**:
    ```bash
    make dashboard
    ```
