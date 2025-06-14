@@ -19,7 +19,6 @@
 
 A batch data pipeline and analytics platform that connects to space-related APIs, processes the data through Snowflake, and creates an interactive dashboard.
 
-![Dashboard Preview](images/airflow.png)
 ![Dashboard Preview](images/dash1.png)
 ![Dashboard Preview](images/dash2.png)
 ![Dashboard Preview](images/dash3.png)
@@ -41,6 +40,7 @@ A batch data pipeline and analytics platform that connects to space-related APIs
 │            │    │          │    │           │    │            │
 └───────────┘    └──────────┘    └───────────┘    └────────────┘
 ```
+![Dashboard Preview](images/airflow.png)
 
 The project implements a full ELT pipeline:
 - **Extract**: API data is fetched using dynamic DAGs and Python scripts orchestrated by Airflow
